@@ -2,7 +2,8 @@
 
 # Web Scraping - Mission to Mars
 
-![mission_to_mars](Images/mission_to_mars.png)
+![Top](Finished_Screenshots/Top_Portion.png)
+![Bottom](Finished_Screenshots/Bottom_Portion.png)
 
 A web application that scrapes various websites for data related to the Mission to Mars and displays the information in a single HTML page. 
 
