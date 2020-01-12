@@ -76,17 +76,21 @@ def scrape():
     # Mars Facts url
     # read html using pandas
     mars_facts_url = 'https://space-facts.com/mars/'
-    fact_tables = pd.read_html(mars_facts_url)
+    facts_tables = pd.read_html(mars_facts_url)
 
     # get first table
     # change column numbers for column names 'description' and 'values'
-    facts_df = fact_tables[0]
-    facts_df.columns = ['description','values']
+    for facts_table in facts_tables:
+        try:
 
-    # set index
-    # save as html
-    mars_facts_df = facts_df.set_index('description')
-    mars_facts_html = mars_facts_df.to_html('mars_facts.html')
+            facts_table = facts_table.rename(columns={0:"Description",1:"Values"})
+            facts_table = facts_table.set_index("Description")
+            mars_facts_html = facts_table.to_html().replace('\n', '')
+            break
+        except:
+            continue
+
+    
 
 
 
